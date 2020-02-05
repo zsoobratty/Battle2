@@ -1,17 +1,17 @@
 require "sinatra/base"
-require "shotgun"
+
 class Battle < Sinatra::Base
   set :session_secret, "nah nah nah"
 
   get '/' do
-    "Testing infrastructure working!"
+    erb :index
   end
 
-  post '/Battle' do
-    @player_1 = params[:player_1]
-    @player_2 = params[:player_2]
-    erb :player_enter
+  post '/names' do
+    @player_1_name = params[:player_1_name]
+    @player_2_name = params[:player_2_name]
+    erb :play
   end
 
-
+  run! if app_file == $0
 end
