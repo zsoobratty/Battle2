@@ -8,7 +8,8 @@ class Battle < Sinatra::Base
   end
 
   get '/Battle' do
-    "Hello Battle!"
+  erb :player_enter
   end
+
 
 end
