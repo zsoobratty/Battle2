@@ -28,6 +28,6 @@ class Battle < Sinatra::Base
     @player_1.attack(@player_2)
     erb :attack
   end
-
+  #  start the server if the ruby file executed properly
   run! if app_file == $0
 end

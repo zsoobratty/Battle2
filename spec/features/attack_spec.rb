@@ -9,6 +9,7 @@ feature "Give attack confirmation" do
   scenario 'reduct P2 HP by 10' do
     sign_in_and_play
     click_button 'Attack'
+    click_link 'OK'
     expect(page).to have_content 'CapyBob: 190HP'
   end
 end
