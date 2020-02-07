@@ -11,8 +11,7 @@ describe Player do
 
     describe "#hit_points" do
         it 'shows player hit points' do
-            expect(capybob).to receive(:receive_damage)
-            capybary.attack(capybob)
+            expect(capybob.hit_points).to eq(200)
         end
     end
 

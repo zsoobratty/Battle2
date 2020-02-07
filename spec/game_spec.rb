@@ -1,15 +1,20 @@
-require './lib/game'
-
+require 'game'
+require 'player'
 describe Game do
-  subject(:game) {described_class.new}
-    let(:player_1) {double :player}
-    let(:player_2) {double :player}
+  subject(:game) { Game.new(capybob, capybary) }
+  subject(:capybob) { Player.new('CapyBob') }
+  subject(:capybary) { Player.new('CapyBary') }
 
-    describe '#attack' do
-      it 'damages the player' do
-        expect(player_2). to receive(:receive_damage)
-        game.attack(player_2)
-      end
+  describe "#initialize" do
+    it 'accepts two arguments' do
+      expect(game.player_1).to eq(capybob)
+      expect(game.player_2).to eq(capybary)
     end
-  
+  end
+
+  describe "#attack" do
+    it 'reduces hit points on attack' do
+        expect { game.attack(capybob) }.to change{ capybob.hit_points }.by(-10)
+    end
+end
 end
